@@ -5,6 +5,7 @@
  canvas {
     display: inline;
     border: 1px solid black;
+    background: url(Fon.gif);
  }
 #restart1 {
    position: relative;
