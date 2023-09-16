@@ -133,12 +133,13 @@ image4.src = 'Zloba2.png';
 image.onload = () => {
   image2.onload = () => {
     image3.onload = () => {
-      image4.onload = () => {
-        requestAnimationFrame(tick);
-      }
+      
     }
   }
 }
+image4.onload = () => {
+        requestAnimationFrame(tick);
+      }
 // функция на которой все держится, но она не держится, если начать менять ее физику :)))
 function tick() {
 
