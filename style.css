@@ -1,3 +1,5 @@
+
+
 #canvas-container {
     width: 100%;
     text-align:center;
@@ -8,7 +10,7 @@
     background: url(Fon.gif);
  }
 #restart1 {
-   position: relative;
+   position: absolute;
    left: 51%;
    transform: translate(-50%, 0);
 }
