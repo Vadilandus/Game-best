@@ -167,10 +167,10 @@ if (box3.position.X <= 100) {
     return GameOver();
 }
 
-box1.position.X = box1.position.X - 5;
+box1.position.X = box1.position.X - 2;
 if (score1 % 7 === 0 && score1 !== 0 ) {
     kartinka4();
-    box3.position.X = box3.position.X - 7;
+    box3.position.X = box3.position.X - 3;
     box1.position.X = getRandomNumber(canvas.width,canvas.width);
 }
 if (!(score1 % 7 === 0 && score1 !== 0)){
