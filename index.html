@@ -1,20 +1,74 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2">
+<link rel="stylesheet" href="style.css">
 <meta charset="UTF-8">
 <title>GameZone</title>
 <link rel="stylesheet" href="style.css">
 <meta name="viewport" content="width-device-width, initial-scale-1.0">
 </head>
 <body>
-    <div id="Game1" style="text-align: center; display: block;">
-    <input type = "button" onclick = "starts()" value = "Старт игры" >
+    <style>
+        html { height: 100%; }
+        body {
+          background: url(https://mousearth.ru/coolstars.gif);
+          background-repeat: repeat;
+          /*background-color: black;*/
+          }
+          .over {
+          position: absolute; /* Абсолютное позиционирование */
+          left: 0; right: 0; top: 0; bottom: 0; /* Отступы от краев браузера */
+          }
+        .t404 {
+          margin-top: 100px;
+          text-align: center; /* Выравнивание текста по центру */
+          font-size: 10em;
+          font-family: "Exo 2";
+          color: #fcf9f9;
+          position: relative; /* Относительное позиционирование */
+          z-index: 2; /* Порядок наложения элемента по высоте */
+          }
+        .notfound {
+          text-align: center;
+          font-family: "Exo 2";
+          color: #f3c040;
+          font-size: 2em;
+          position: relative; /* Относительное позиционирование */
+          z-index: 2; /* Порядок наложения элемента по слоям в глубину */
+          }
+        .notfound a {
+          color: #f3c040;
+          font-family: "Exo 2";
+          transition: all 0.85s;
+          font-size: 0.8em;
+          text-decoration: none;
+          }
+        .notfound a:hover {
+          color: #f3c040;
+          transform: scale(1.2); /* Увеличиваем масштаб */
+          text-decoration: none;
+          font-size: 1em;
+          }
+    </style>
+    
+
+
+    <div class="t404">404</div>
+    <div class="notfound">КУДА ТЫ ЖМАЛ? НЕТ ТАКОЙ СТРАНИЦЫ У НАС!<br>
+    <a href="https://mousearth.ru"> Перейти на главную страницу</a>
     </div>
-    <div id="canvas-container">
-        <canvas id="Gamess" style="display: none;">Your browser doesn't support canvas</canvas>
-    </div>
-    <div id="restart"><button id = "restart1" onClick="window.location.reload();">Начать заново</button> </div>
-<script src="script.js"></script>
+
+        <div id="canvas-container">
+            <canvas id="Gamess" style="display: inline;">Your browser doesn't support canvas</canvas>
+            
+        </div>
+        <div id="Game1" style="text-align: center; display: block;">
+            <input class="button-33" id = "dolit" type = "button" onclick = "starts()" value = "Старт игры" > <button class ="button-33" id = "restart1" onClick="window.location.reload();">Начать заново</button>
+        </div>
+        
+    <script src="script.js"></script>
 
 </body>
 </html>
