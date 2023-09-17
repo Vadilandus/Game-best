@@ -130,13 +130,13 @@ function soundLaser() {
   let audio1 = new Audio();
   audio1.src = "laser.mp3";
   audio1.autoplay = true;
-  audio1.volume = 0.1;
+  audio1.volume = 0.05;
 }
 function Vzriv(){
   let audio2 = new Audio();
   audio2.src = "Vzriv.mp3";
   audio2.autoplay = true;
-  audio2.volume = 0.2;
+  audio2.volume = 0.03;
 }
 
 
