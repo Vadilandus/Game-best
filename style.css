@@ -2,10 +2,11 @@
 #canvas-container {
     width: 100%;
     text-align:center;
+    display: block;
  }
  canvas {
    margin-bottom: 10px;
-    display: inline;
+    display: block;
     border: 1px solid black;
     background: url(Fon.gif);
  }
@@ -16,13 +17,13 @@
 }
 .button-33 {
   font-family: "Exo 2";
-  background-color: #f7e411;
+  background-color: #fdf500;
   border-radius: 100px;
   box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
   color: black;
   cursor: pointer;
   display: inline-block;
-/*   font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif; */
+  /* font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif; */
   padding: 7px 20px;
   text-align: center;
   text-decoration: none;
@@ -36,5 +37,6 @@
 }
 
 .button-33:hover {
-  box-shadow: rgb(255, 0, 0) 0 -25px 18px -14px inset,rgba(238, 255, 50, 0.25) 0 1px 2px,rgba(255, 225, 0, 0.25) 0 2px 4px,rgba(136, 208, 255, 0.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(237, 146, 255, 0.983) 0 16px 32px;
+  transition: all 0.85s;
+  box-shadow: rgb(255, 126, 126) 0 -25px 18px -14px inset,rgba(238, 255, 50, 0.25) 0 1px 2px,rgba(255, 225, 0, 0.25) 0 2px 4px,rgba(136, 208, 255, 0.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(237, 146, 255, 0.983) 0 16px 32px;
 }
