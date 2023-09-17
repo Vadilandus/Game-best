@@ -192,7 +192,28 @@ if (box3.position.X <= 100) {
   
     return GameOver();
 }
+// if (box3.position.Y < 0 ){
+//         box3.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
+// }
+// if (box1.position.Y < 0) {
+//       box1.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
+// }
+// kartinka3();
+// kartinka4();
+// box3.position.X = box3.position.X - vbox3;
+// box1.position.X = box1.position.X - vbox1;
 
+// if (box3.position.X + box3.width >= box1.position.X && box1.position.X + box1.width >= box3.position.X && box3.position.Y + box3.height >= box1.position.Y && box1.position.Y + box1.height >= box3.position.Y) {
+  
+//   context.clearRect(104,0, canvas.width, canvas.height );
+//   box3.position.X = 1000;
+//   box3.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
+//   box1.position.X = 1000;
+//   box1.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
+
+//   score = score + 4;
+//   score1 = score1 +1;
+// }
 box1.position.X = box1.position.X - vbox1;
 if (score1 % 7 === 0 && score1 !== 0 ) {
     if (box3.position.Y < 0 ){
@@ -246,6 +267,8 @@ if (true) {
 }
 }
 
+
+
 class Box {
     constructor({
       position = { X: 0, Y: 0 },
@@ -273,6 +296,8 @@ class Box {
    
   }
   
+
+
   const box3 = new Box({
     position: {
       X: 1000,
@@ -284,6 +309,8 @@ class Box {
     },
     color: 'cyan'
   })
+
+
 
   box2 = new Box({
     position: {
@@ -298,6 +325,8 @@ class Box {
     hasKey: false
   })
 
+
+
   const box1 = new Box({
     position: {
       X: 1000,
@@ -310,6 +339,7 @@ class Box {
     color: 'red'
   })
   
+
   
   // instantiate box with right offset
 //   const box2 = new Box({
