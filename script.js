@@ -40,7 +40,6 @@ function GameOver () {
   context.fillStyle = 'white';
   context.font = '50px Exo2';
   context.fillText('You Lose', canvas.width/2 - 70, canvas.height/2);
-  
 }
 // функция для поля нашей базы
 let pole1 = () => {
@@ -118,23 +117,37 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }  
 
+
+
 // код для реализации песенок
-function soundClick() {
-  let audio = new Audio();
+let audio = new Audio();
   audio.src = "pesnya.mp3";
-  audio.autoplay = true;
+
+function soundClick() {
+  
+  audio.play();
+  audio.volume = 0.1;
 }
+
+
+
 function soundLaser() {
   let audio1 = new Audio();
   audio1.src = "laser.mp3";
-  audio1.autoplay = true;
+  audio1.play();
+  audio1.volume = 0.1;
 }
+
+
 
 function Vzriv() {
   let audio2 = new Audio();
   audio2.src = "Vzriv.mp3";
   audio2.autoplay = true;
+  audio2.volume = 0.03;
 }
+
+
 
 
 // код ниже создает презагрузку картинок, чтобы "игра" работала :))
@@ -169,8 +182,9 @@ function tick() {
 setTimeout(function () {
   if (!(box1.position.X <= 100 && box3.position.X <= 100)) {
     requestAnimationFrame(tick);
+  }else {
+    
   }
-  
 },1000/144);
 
 
@@ -188,13 +202,15 @@ pole1();
 kartinka();
 if (startplay === 1) {
 if (box1.position.X <= 100) {
-   
-    return GameOver();
+    GameOver();
+    audio.pause();
+    return
 }
 
 if (box3.position.X <= 100) {
-  
-    return GameOver();
+    GameOver();
+    audio.pause();
+    return
 }
 // if (box3.position.Y < 0 ){
 //         box3.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
@@ -362,4 +378,4 @@ class Box {
 //   c.fillRect(0, 0, canvas.width, canvas.height)
   
   // draw boxes
-  
+ 
