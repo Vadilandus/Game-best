@@ -130,7 +130,11 @@ function soundLaser() {
   audio1.autoplay = true;
 }
 
-
+function Vzriv() {
+  let audio2 = new Audio();
+  audio2.src = "Vzriv.mp3";
+  audio2.autoplay = true;
+}
 
 
 // код ниже создает презагрузку картинок, чтобы "игра" работала :))
@@ -162,16 +166,16 @@ image4.onload = () => {
 }
 // функция на которой все держится, но она не держится, если начать менять ее физику :)))
 function tick() {
-// setTimeout(function () {
-//   if (!(box1.position.X <= 100 && box3.position.X <= 100)) {
-//     requestAnimationFrame(tick);
-//   }
+setTimeout(function () {
+  if (!(box1.position.X <= 100 && box3.position.X <= 100)) {
+    requestAnimationFrame(tick);
+  }
   
-// },1000/144);
+},1000/144);
 
 
 
-requestAnimationFrame(tick);
+// requestAnimationFrame(tick);
 
 console.log(y);
 
@@ -192,40 +196,44 @@ if (box3.position.X <= 100) {
   
     return GameOver();
 }
-if (box3.position.Y < 0 ){
-        box3.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
-}
-if (box1.position.Y < 0) {
-      box1.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
-}
-kartinka3();
-kartinka4();
-box3.position.X = box3.position.X - vbox3;
-box1.position.X = box1.position.X - vbox1;
-
-if (box3.position.X + box3.width >= box1.position.X && box1.position.X + box1.width >= box3.position.X && box3.position.Y + box3.height >= box1.position.Y && box1.position.Y + box1.height >= box3.position.Y) {
-  
-  context.clearRect(104,0, canvas.width, canvas.height );
-  box3.position.X = 1000;
-  box3.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
-  box1.position.X = 1000;
-  box1.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
-}
+// if (box3.position.Y < 0 ){
+//         box3.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
+// }
+// if (box1.position.Y < 0) {
+//       box1.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
+// }
+// kartinka3();
+// kartinka4();
+// box3.position.X = box3.position.X - vbox3;
 // box1.position.X = box1.position.X - vbox1;
-// if (score1 % 7 === 0 && score1 !== 0 ) {
-//     if (box3.position.Y < 0 ){
-//       box3.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
-//     }
-//     kartinka4();
-//     box3.position.X = box3.position.X - vbox3;
-//     box1.position.X = getRandomNumber(canvas.width,canvas.width);
+
+// if (box3.position.X + box3.width >= box1.position.X && box1.position.X + box1.width >= box3.position.X && box3.position.Y + box3.height >= box1.position.Y && box1.position.Y + box1.height >= box3.position.Y) {
+  
+//   context.clearRect(104,0, canvas.width, canvas.height );
+//   box3.position.X = 1000;
+//   box3.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
+//   box1.position.X = 1000;
+//   box1.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
+
+//   score = score + 4;
+//   score1 = score1 +1;
 // }
-// if (!(score1 % 7 === 0 && score1 !== 0)){
-//     if (box1.position.Y < 0) {
-//     box1.position.Y = getRandomNumber(0 + 50, canvas.height - 50)
-//     }
-//     kartinka3();
-// }
+
+box1.position.X = box1.position.X - vbox1;
+if (score1 % 7 === 0 && score1 !== 0 ) {
+    if (box3.position.Y < 0 ){
+      box3.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
+    }
+    kartinka4();
+    box3.position.X = box3.position.X - vbox3;
+    box1.position.X = getRandomNumber(canvas.width,canvas.width);
+}
+if (!(score1 % 7 === 0 && score1 !== 0)){
+    if (box1.position.Y < 0) {
+    box1.position.Y = getRandomNumber(0 + 50, canvas.height - 50)
+    }
+    kartinka3();
+}
 
 
 if (box3.position.X + box3.width >= box2.position.X && box2.position.X + box2.width >= box3.position.X && box3.position.Y + box3.height >= box2.position.Y && box2.position.Y + box2.height >= box3.position.Y) {
@@ -235,6 +243,7 @@ if (box3.position.X + box3.width >= box2.position.X && box2.position.X + box2.wi
       box2.position.X = 100000;
       score = score + 4;
       score1 = score1 +1;
+      Vzriv();
     }
 
 
@@ -246,6 +255,7 @@ if (box1.position.X + box1.width >= box2.position.X && box2.position.X + box2.wi
       box2.position.X = 100000;
       score = score + 1;
       score1 = score1 +1;
+      Vzriv();
     }
 
 
@@ -352,4 +362,4 @@ class Box {
 //   c.fillRect(0, 0, canvas.width, canvas.height)
   
   // draw boxes
- 
+  
