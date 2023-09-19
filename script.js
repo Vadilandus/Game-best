@@ -102,9 +102,6 @@ Object.keys(pressedKeys).forEach(key => {
 
   if (!pressedKeys[key]) return
   if (key == 32) {
-    if (puls === 4) {
-      puls = 0;
-    }
     if (puls === 0) {
       soundLaser();
     box2.position.Y = y + 35;
@@ -136,6 +133,12 @@ Object.keys(pressedKeys).forEach(key => {
     //   box8.position.X = 100;
     // }
     puls = puls + 1;
+    if (puls === 4) {
+      puls = 0;
+    }
+    if (puls === 3) {
+      Reload(); 
+    }
   } 
   });
 }
@@ -169,6 +172,13 @@ function Vzriv(){
   audio2.volume = 0.2;
 }
 
+function Reload() {
+  let audio3 = new Audio();
+  audio3.src = 'reload.mp3';
+  audio3.autoplay = true;
+  audio3.volume = 0.15;
+  audio3.playbackRate = 1.8;
+}
 
 // код ниже создает презагрузку картинок, чтобы "игра" работала :))
 let image = new Image();
@@ -299,7 +309,10 @@ if (puls === 1) {
 if (puls === 2) {
   patron1();
 }
-
+if (puls === 3) {
+  context.font ='30px Exo-2';
+  context.fillText('Reload',8,500);
+}
 
 
 kartinka3();
