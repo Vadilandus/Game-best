@@ -67,6 +67,21 @@ let kartinka3 = () => {
 let kartinka4 = () => {
   return context.drawImage(image4,box3.position.X,box3.position.Y,35,35);
 }
+let kartinka5 = () => {
+  return context.drawImage(image2,box4.position.X,box4.position.Y,35,35);
+}
+let kartinka6 = () => {
+  return context.drawImage(image2,box5.position.X,box5.position.Y,35,35);
+}
+let kartinka7 = () => {
+  return context.drawImage(image2,box6.position.X,box6.position.Y,35,35);
+}
+let kartinka8 = () => {
+  return context.drawImage(image2,box7.position.X,box7.position.Y,35,35);
+}
+let kartinka9 = () => {
+  return context.drawImage(image2,box8.position.X,box8.position.Y,35,35);
+}
 
 // это было чуточку украдено из интернета, потому что не было времени на создание собственной физики движения, но тут все понятно и логично, хотя некоторые моменты являются багнутыми, но они не мешают играть, если вы будете Играть, а не искать баги!
 var pressedKeys = {}
@@ -79,10 +94,37 @@ Object.keys(pressedKeys).forEach(key => {
 
   if (!pressedKeys[key]) return
   if (key == 32) {
-
-    soundLaser();
+    if (puls === 0) {
+      soundLaser();
     box2.position.Y = y + 35;
     box2.position.X = 100;
+    }
+    if (puls === 1) {
+      soundLaser();
+    box4.position.Y = y + 35;
+    box4.position.X = 100;
+    }
+    if (puls === 2) {
+      soundLaser();
+      box5.position.Y = y + 35;
+      box5.position.X = 100;
+    }
+    // if (puls === 3) {
+    //   soundLaser();
+    //   box6.position.Y = y + 35;
+    //   box6.position.X = 100;
+    // }
+    // if (puls === 4) {
+    //   soundLaser();
+    //   box7.position.Y = y + 35;
+    //   box7.position.X = 100;
+    // }
+    // if (puls === 5) {
+    //   soundLaser();
+    //   box8.position.Y = y + 35;
+    //   box8.position.X = 100;
+    // }
+    puls = puls + 1;
   } 
   });
 }
@@ -164,6 +206,10 @@ function tick() {
 
 console.log(y);
 
+if (puls === 3) {
+  puls = 0;
+}
+
 if (y >= v*dt && y < canvas.height - kartinkaSizeY) {
   if (pressed['KeyW']) {
     y = y - v*dt;
@@ -228,23 +274,121 @@ if (box3.position.X + box3.width >= box1.position.X && box1.position.X + box1.wi
   box1.position.X = 1000;
   box1.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
 }
-// box1.position.X = box1.position.X - vbox1;
-// if (score1 % 7 === 0 && score1 !== 0 ) {
-//     if (box3.position.Y < 0 ){
-//       box3.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
-//     }
-//     kartinka4();
-//     box3.position.X = box3.position.X - vbox3;
-//     box1.position.X = getRandomNumber(canvas.width,canvas.width);
-// }
-// if (!(score1 % 7 === 0 && score1 !== 0)){
-//     if (box1.position.Y < 0) {
-//     box1.position.Y = getRandomNumber(0 + 50, canvas.height - 50)
-//     }
-//     kartinka3();
-// }
 
 
+// //box8
+// if (box3.position.X + box3.width >= box8.position.X && box8.position.X + box8.width >= box3.position.X && box3.position.Y + box3.height >= box8.position.Y && box8.position.Y + box8.height >= box3.position.Y) {
+//   context.clearRect(104,0, canvas.width, canvas.height );
+//   box3.position.X = getRandomNumber(canvas.width,canvas.width);
+//   box3.position.Y = -1000;
+//   box8.position.X = 100000;
+//   Vzriv();
+//   score = score + 4;
+//   score1 = score1 +1;
+  
+// }
+
+// if (box1.position.X + box1.width >= box8.position.X && box8.position.X + box8.width >= box1.position.X && box1.position.Y + box1.height >= box8.position.Y && box8.position.Y + box8.height >= box1.position.Y) {
+//   context.clearRect(104,0, canvas.width, canvas.height );
+//   box1.position.X = getRandomNumber(canvas.width,canvas.width);
+//   box1.position.Y = -1000;
+//   box8.position.X = 100000;
+//   Vzriv();
+//   score = score + 1;
+//   score1 = score1 +1;
+  
+// }
+
+// //box7
+// if (box3.position.X + box3.width >= box7.position.X && box7.position.X + box7.width >= box3.position.X && box3.position.Y + box3.height >= box7.position.Y && box7.position.Y + box7.height >= box3.position.Y) {
+//   context.clearRect(104,0, canvas.width, canvas.height );
+//   box3.position.X = getRandomNumber(canvas.width,canvas.width);
+//   box3.position.Y = -1000;
+//   box7.position.X = 100000;
+//   Vzriv();
+//   score = score + 4;
+//   score1 = score1 +1;
+  
+// }
+
+// if (box1.position.X + box1.width >= box7.position.X && box7.position.X + box7.width >= box1.position.X && box1.position.Y + box1.height >= box7.position.Y && box7.position.Y + box7.height >= box1.position.Y) {
+//   context.clearRect(104,0, canvas.width, canvas.height );
+//   box1.position.X = getRandomNumber(canvas.width,canvas.width);
+//   box1.position.Y = -1000;
+//   box7.position.X = 100000;
+//   Vzriv();
+//   score = score + 1;
+//   score1 = score1 +1;
+  
+// }
+
+// //box6
+// if (box3.position.X + box3.width >= box6.position.X && box6.position.X + box6.width >= box3.position.X && box3.position.Y + box3.height >= box6.position.Y && box6.position.Y + box6.height >= box3.position.Y) {
+//   context.clearRect(104,0, canvas.width, canvas.height );
+//   box3.position.X = getRandomNumber(canvas.width,canvas.width);
+//   box3.position.Y = -1000;
+//   box6.position.X = 100000;
+//   Vzriv();
+//   score = score + 4;
+//   score1 = score1 +1;
+  
+// }
+
+// if (box1.position.X + box1.width >= box6.position.X && box6.position.X + box6.width >= box1.position.X && box1.position.Y + box1.height >= box6.position.Y && box6.position.Y + box6.height >= box1.position.Y) {
+//   context.clearRect(104,0, canvas.width, canvas.height );
+//   box1.position.X = getRandomNumber(canvas.width,canvas.width);
+//   box1.position.Y = -1000;
+//   box6.position.X = 100000;
+//   Vzriv();
+//   score = score + 1;
+//   score1 = score1 +1;
+  
+// }
+//box5
+if (box3.position.X + box3.width >= box5.position.X && box5.position.X + box5.width >= box3.position.X && box3.position.Y + box3.height >= box5.position.Y && box5.position.Y + box5.height >= box3.position.Y) {
+  context.clearRect(104,0, canvas.width, canvas.height );
+  box3.position.X = getRandomNumber(canvas.width,canvas.width);
+  box3.position.Y = -1000;
+  box5.position.X = 100000;
+  Vzriv();
+  score = score + 4;
+  score1 = score1 +1;
+  
+}
+
+if (box1.position.X + box1.width >= box5.position.X && box5.position.X + box5.width >= box1.position.X && box1.position.Y + box1.height >= box5.position.Y && box5.position.Y + box5.height >= box1.position.Y) {
+  context.clearRect(104,0, canvas.width, canvas.height );
+  box1.position.X = getRandomNumber(canvas.width,canvas.width);
+  box1.position.Y = -1000;
+  box5.position.X = 100000;
+  Vzriv();
+  score = score + 1;
+  score1 = score1 +1;
+  
+}
+//box4
+if (box3.position.X + box3.width >= box4.position.X && box4.position.X + box4.width >= box3.position.X && box3.position.Y + box3.height >= box4.position.Y && box4.position.Y + box4.height >= box3.position.Y) {
+  context.clearRect(104,0, canvas.width, canvas.height );
+  box3.position.X = getRandomNumber(canvas.width,canvas.width);
+  box3.position.Y = -1000;
+  box4.position.X = 100000;
+  Vzriv();
+  score = score + 4;
+  score1 = score1 +1;
+  
+}
+
+if (box1.position.X + box1.width >= box4.position.X && box4.position.X + box4.width >= box1.position.X && box1.position.Y + box1.height >= box4.position.Y && box4.position.Y + box4.height >= box1.position.Y) {
+  context.clearRect(104,0, canvas.width, canvas.height );
+  box1.position.X = getRandomNumber(canvas.width,canvas.width);
+  box1.position.Y = -1000;
+  box4.position.X = 100000;
+  Vzriv();
+  score = score + 1;
+  score1 = score1 +1;
+  
+}
+//box2
 if (box3.position.X + box3.width >= box2.position.X && box2.position.X + box2.width >= box3.position.X && box3.position.Y + box3.height >= box2.position.Y && box2.position.Y + box2.height >= box3.position.Y) {
       context.clearRect(104,0, canvas.width, canvas.height );
       box3.position.X = getRandomNumber(canvas.width,canvas.width);
@@ -276,8 +420,18 @@ if (true) {
 
         
         if (key == 32) {
-            box2.position.X = box2.position.X + 30;
-            kartinka2(); 
+            box4.position.X = box4.position.X + 20;
+            box2.position.X = box2.position.X + 20;
+            box5.position.X = box5.position.X + 20;
+            // box6.position.X = box6.position.X + 30;
+            // box7.position.X = box7.position.X + 30;
+            // box8.position.X = box8.position.X + 30;
+            kartinka2();
+            kartinka5();
+            kartinka6();
+            // kartinka7();
+            // kartinka8();
+            // kartinka9();
         } 
         
         });
@@ -343,8 +497,66 @@ class Box {
     hasKey: false
   })
 
-
-
+   const box4 = new Box({
+    position: {
+      X: 1000,
+      Y: 0
+    },
+    velocity: {
+        X: 0,
+        Y: 0
+    },
+    color: 'blue',
+    hasKey: false
+  })
+  const box5 = new Box({
+    position: {
+      X: 1000,
+      Y: 0
+    },
+    velocity: {
+        X: 0,
+        Y: 0
+    },
+    color: 'blue',
+    hasKey: false
+  })
+  // const box6 = new Box({
+  //   position: {
+  //     X: 1000,
+  //     Y: 0
+  //   },
+  //   velocity: {
+  //       X: 0,
+  //       Y: 0
+  //   },
+  //   color: 'blue',
+  //   hasKey: false
+  // })
+  // const box7 = new Box({
+  //   position: {
+  //     X: 1000,
+  //     Y: 0
+  //   },
+  //   velocity: {
+  //       X: 0,
+  //       Y: 0
+  //   },
+  //   color: 'blue',
+  //   hasKey: false
+  // })
+  // const box8 = new Box({
+  //   position: {
+  //     X: 1000,
+  //     Y: 0
+  //   },
+  //   velocity: {
+  //       X: 0,
+  //       Y: 0
+  //   },
+  //   color: 'blue',
+  //   hasKey: false
+  // })
   const box1 = new Box({
     position: {
       X: 1000,
