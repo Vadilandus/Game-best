@@ -95,15 +95,11 @@ let pressingbutton = '';
 let pressedKeys = {}
 document.onkeydown = function(e) {
 
-pressedKeys[e.keyCode] = true
+pressedKeys[e.code] = true
 
 //выстрел!
-Object.keys(pressedKeys).forEach(key => {
-
-  // if (!pressedKeys[key]) return
-  if (key == 32) {
-    if (pressingbutton !== 'fire') {
-    pressingbutton = 'fire';
+  if (pressedKeys['Space']) {
+    if (pressingbutton === '') {
     if (puls === 0) {
       soundLaser();
     box2.position.Y = y + 35;
@@ -141,15 +137,16 @@ Object.keys(pressedKeys).forEach(key => {
     if (puls === 3) {
       Reload(); 
     }
+    pressingbutton = 'fire';
     
   }
-  } 
-  });
+} 
 }
+
 
 document.onkeyup = function(event) {
   pressingbutton = '';
-pressedKeys[event.keyCode] = false
+pressedKeys[event.code] = false
 }
 // рандомное число, нужное для выхода злобных корабликов в разных местах
 function getRandomNumber(min, max) {
@@ -271,6 +268,50 @@ if (y === canvas.height - kartinkaSizeY + 3) {
     y = y - v*dt;
   }
 }
+
+if (pressedKeys['Space']) {
+  if (pressingbutton !== 'fire') {
+  pressingbutton = 'fire';
+  if (puls === 0) {
+    soundLaser();
+  box2.position.Y = y + 35;
+  box2.position.X = 100;
+  }
+  if (puls === 1) {
+    soundLaser();
+  box4.position.Y = y + 35;
+  box4.position.X = 100;
+  }
+  if (puls === 2) {
+    soundLaser();
+    box5.position.Y = y + 35;
+    box5.position.X = 100;
+  }
+  // if (puls === 3) {
+  //   soundLaser();
+  //   box6.position.Y = y + 35;
+  //   box6.position.X = 100;
+  // }
+  // if (puls === 4) {
+  //   soundLaser();
+  //   box7.position.Y = y + 35;
+  //   box7.position.X = 100;
+  // }
+  // if (puls === 5) {
+  //   soundLaser();
+  //   box8.position.Y = y + 35;
+  //   box8.position.X = 100;
+  // }
+  puls = puls + 1;
+  if (puls === 4) {
+    puls = 0;
+  }
+  if (puls === 3) {
+    Reload(); 
+  }
+  
+}
+} 
 
 // requestAnimationFrame(tick);
 
