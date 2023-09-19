@@ -91,17 +91,19 @@ let patron2 = () => {
 let patron3 = () => {
   return context.drawImage(image5, 40, 460, 40, 40);
 }
-// это было чуточку украдено из интернета, потому что не было времени на создание собственной физики движения, но тут все понятно и логично, хотя некоторые моменты являются багнутыми, но они не мешают играть, если вы будете Играть, а не искать баги!
-var pressedKeys = {}
+let pressingbutton = '';
+let pressedKeys = {}
 document.onkeydown = function(e) {
 
-pressedKeys[event.keyCode] = true
+pressedKeys[e.keyCode] = true
 
 //выстрел!
 Object.keys(pressedKeys).forEach(key => {
 
-  if (!pressedKeys[key]) return
+  // if (!pressedKeys[key]) return
   if (key == 32) {
+    if (pressingbutton !== 'fire') {
+    pressingbutton = 'fire';
     if (puls === 0) {
       soundLaser();
     box2.position.Y = y + 35;
@@ -139,11 +141,14 @@ Object.keys(pressedKeys).forEach(key => {
     if (puls === 3) {
       Reload(); 
     }
+    
+  }
   } 
   });
 }
 
 document.onkeyup = function(event) {
+  pressingbutton = '';
 pressedKeys[event.keyCode] = false
 }
 // рандомное число, нужное для выхода злобных корабликов в разных местах
@@ -468,28 +473,33 @@ if (box1.position.X + box1.width >= box2.position.X && box2.position.X + box2.wi
     }
 
 
-
-if (true) {
-    Object.keys(pressedKeys).forEach(key => {
+kartinka2();
+kartinka5();
+kartinka6();
+box4.position.X = box4.position.X + 14;
+box2.position.X = box2.position.X + 14;
+box5.position.X = box5.position.X + 14;
+// if (true) {
+//     Object.keys(pressedKeys).forEach(key => {
 
         
-        if (key == 32) {
-            box4.position.X = box4.position.X + 14;
-            box2.position.X = box2.position.X + 14;
-            box5.position.X = box5.position.X + 14;
-            // box6.position.X = box6.position.X + 30;
-            // box7.position.X = box7.position.X + 30;
-            // box8.position.X = box8.position.X + 30;
-            kartinka2();
-            kartinka5();
-            kartinka6();
-            // kartinka7();
-            // kartinka8();
-            // kartinka9();
-        } 
+//         if (key == 32) {
+//             box4.position.X = box4.position.X + 14;
+//             box2.position.X = box2.position.X + 14;
+//             box5.position.X = box5.position.X + 14;
+//             // box6.position.X = box6.position.X + 30;
+//             // box7.position.X = box7.position.X + 30;
+//             // box8.position.X = box8.position.X + 30;
+//             kartinka2();
+//             kartinka5();
+//             kartinka6();
+//             // kartinka7();
+//             // kartinka8();
+//             // kartinka9();
+//         } 
         
-        });
-       }
+//         });
+//        }
 }
 }
 
@@ -540,7 +550,7 @@ class Box {
 
   box2 = new Box({
     position: {
-      X: 100,
+      X: 1000,
       Y: 0
     },
     velocity: {
