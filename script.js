@@ -82,7 +82,15 @@ let kartinka8 = () => {
 let kartinka9 = () => {
   return context.drawImage(image2,box8.position.X,box8.position.Y,35,35);
 }
-
+let patron1 = () => {
+  return context.drawImage(image5, 0, 460, 40, 40);
+}
+let patron2 = () => {
+  return context.drawImage(image5, 20, 460, 40, 40);
+}
+let patron3 = () => {
+  return context.drawImage(image5, 40, 460, 40, 40);
+}
 // это было чуточку украдено из интернета, потому что не было времени на создание собственной физики движения, но тут все понятно и логично, хотя некоторые моменты являются багнутыми, но они не мешают играть, если вы будете Играть, а не искать баги!
 var pressedKeys = {}
 document.onkeydown = function(e) {
@@ -94,6 +102,9 @@ Object.keys(pressedKeys).forEach(key => {
 
   if (!pressedKeys[key]) return
   if (key == 32) {
+    if (puls === 4) {
+      puls = 0;
+    }
     if (puls === 0) {
       soundLaser();
     box2.position.Y = y + 35;
@@ -176,6 +187,10 @@ let image4 = new Image();
 
 image4.src = 'Zloba2.png';
 
+let image5 = new Image();
+
+image5.src = 'patron.png';
+
 image.onload = () => {
   image2.onload = () => {
     image3.onload = () => {
@@ -184,7 +199,9 @@ image.onload = () => {
   }
 }
 image4.onload = () => {
-    
+    image5.onload = () =>{
+
+    }
 }
 //движение кораблика и выстрел
 const pressed = {};
@@ -206,8 +223,17 @@ function tick() {
 
 console.log(y);
 
-if (puls === 3) {
-  puls = 0;
+if (score1 >= 35 && score1 < 65) {
+  vbox1 = 2.1;
+  vbox3 = 4;
+}
+if (score1 >= 65 && score1 < 90 ) {
+  vbox1 = 3.2;
+  vbox3 = 5.1;
+}
+if (score1 >= 90) {
+  vbox1 = 6;
+  vbox3 = 9;
 }
 
 if (y >= v*dt && y < canvas.height - kartinkaSizeY) {
@@ -260,6 +286,21 @@ if (box3.position.Y < 0 ){
 if (box1.position.Y < 0) {
       box1.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
 }
+
+if (puls === 0) {
+  patron1();
+  patron2();
+  patron3();
+}
+if (puls === 1) {
+  patron1();
+  patron2();
+}
+if (puls === 2) {
+  patron1();
+}
+
+
 
 kartinka3();
 kartinka4();
@@ -420,9 +461,9 @@ if (true) {
 
         
         if (key == 32) {
-            box4.position.X = box4.position.X + 20;
-            box2.position.X = box2.position.X + 20;
-            box5.position.X = box5.position.X + 20;
+            box4.position.X = box4.position.X + 14;
+            box2.position.X = box2.position.X + 14;
+            box5.position.X = box5.position.X + 14;
             // box6.position.X = box6.position.X + 30;
             // box7.position.X = box7.position.X + 30;
             // box8.position.X = box8.position.X + 30;
