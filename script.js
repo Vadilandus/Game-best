@@ -25,6 +25,8 @@ let box2 = ''; // тоже нужна была на моменте тестир�
 
 let startplay;
 
+let puls = 0;
+
 window.onkeydown = function(e) {
   return e.keyCode !== 32;
 };
@@ -77,9 +79,10 @@ Object.keys(pressedKeys).forEach(key => {
 
   if (!pressedKeys[key]) return
   if (key == 32) {
-      soundLaser();
-      box2.position.Y = y + 35;
-      box2.position.X = 100;
+
+    soundLaser();
+    box2.position.Y = y + 35;
+    box2.position.X = 100;
   } 
   });
 }
@@ -150,20 +153,14 @@ document.addEventListener('keyup', function(event){
   pressed[event.code] = false;
 })
 
-// if (pressed['Space']) {
-//   soundLaser();
-//   box2.position.Y = y + 35;
-//   box2.position.X = 100;
-// }
-
 // функция на которой все держится, но она не держится, если начать менять ее физику :)))
 function tick() {
-setTimeout(function () {
+// setTimeout(function () {
   if (!(box1.position.X <= 100 && box3.position.X <= 100)) {
     requestAnimationFrame(tick);
   }
   
-},1000/144);
+// },1000/144);
 
 console.log(y);
 
@@ -210,12 +207,14 @@ if (box3.position.X <= 100) {
     audio.pause();
     return 
 }
+
 if (box3.position.Y < 0 ){
         box3.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
 }
 if (box1.position.Y < 0) {
       box1.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
 }
+
 kartinka3();
 kartinka4();
 box3.position.X = box3.position.X - vbox3;
@@ -356,22 +355,4 @@ class Box {
         Y: 0
     },
     color: 'red'
-  })
-  
-
-  
-  // instantiate box with right offset
-//   const box2 = new Box({
-//     position: {
-//       X: 100,
-//       Y: 100
-//     },
-//     color: 'blue'
-//   })
-  
-  // add gray background
-//   c.fillStyle = 'rgb(39,39,42)'
-//   c.fillRect(0, 0, canvas.width, canvas.height)
-  
-  // draw boxes
- 
+  }) 
