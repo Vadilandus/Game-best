@@ -244,8 +244,8 @@ if (score1 >= 65 && score1 < 90 ) {
   vbox3 = 5.1;
 }
 if (score1 >= 90) {
-  vbox1 = 6;
-  vbox3 = 9;
+  vbox1 = 4.3;
+  vbox3 = 6.5;
 }
 
 if (y >= v*dt && y < canvas.height - kartinkaSizeY) {
