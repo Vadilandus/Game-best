@@ -222,6 +222,7 @@ document.addEventListener('keydown', function(event){
 })
 document.addEventListener('keyup', function(event){
   pressed[event.code] = false;
+  dt = 0.1;
 })
 
 // функция на которой все держится, но она не держится, если начать менять ее физику :)))
@@ -248,6 +249,10 @@ if (score1 >= 90) {
   vbox3 = 6.5;
 }
 
+if (pressed['ShiftLeft']) {
+  dt = 0.2;
+}
+
 if (y >= v*dt && y < canvas.height - kartinkaSizeY) {
   if (pressed['KeyW']) {
     y = y - v*dt;
@@ -263,7 +268,7 @@ if (y <= v*dt) {
   }
 }
 
-if (y === canvas.height - kartinkaSizeY + 3.5) {
+if (y === canvas.height - kartinkaSizeY + 3.5 || y === canvas.height - kartinkaSizeY + 9) {
   if (pressed['KeyW']) {
     y = y - v*dt;
   }
