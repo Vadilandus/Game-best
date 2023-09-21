@@ -144,6 +144,7 @@ pressedKeys[e.code] = true
 }
 
 
+
 document.onkeyup = function(event) {
   pressingbutton = '';
 pressedKeys[event.code] = false
@@ -321,6 +322,7 @@ if (pressedKeys['Space']) {
 // requestAnimationFrame(tick);
 
 
+
 context.clearRect(0, 0, canvas.width, canvas.height);
 
 context.fillStyle = 'yellow';
@@ -366,6 +368,7 @@ if (puls === 3) {
 }
 
 
+
 kartinka3();
 kartinka4();
 box3.position.X = box3.position.X - vbox3;
@@ -379,6 +382,7 @@ if (box3.position.X + box3.width >= box1.position.X && box1.position.X + box1.wi
   box1.position.X = 1000;
   box1.position.Y = getRandomNumber(0 + 50, canvas.height - 50);
 }
+
 
 
 // //box8
